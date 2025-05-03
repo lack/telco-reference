@@ -378,3 +378,11 @@ required_sriov_operator_SriovOperatorConfigForSNO:
 required_sriov_operator_SriovSubscription:
 - spec:
     source: redhat-operators-disconnected
+global:
+  lookup_substitutions:
+    lookupCRs_performance_openshift_io_v2_PerformanceProfile:
+      - metadata:
+          name: openshift-node-performance-profile
+        spec:
+          machineConfigPoolSelector:
+            pools.operator.machineconfiguration.openshift.io/$mcp: ""
